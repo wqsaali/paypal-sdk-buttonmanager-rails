@@ -101,8 +101,7 @@ Members can be access with camelcase or underscore format.
 
 To Get members list for the given object( For Reference ):
 
-    convert_currency_request.members
-    convert_currency_request.baseAmountList.members
+    bm_create_button_request.members
 
 ## Make API Request
 
