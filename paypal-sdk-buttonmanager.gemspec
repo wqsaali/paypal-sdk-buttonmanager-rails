@@ -6,8 +6,8 @@ require 'paypal-sdk/button_manager/version'
 Gem::Specification.new do |gem|
   gem.name          = "paypal-sdk-buttonmanager"
   gem.version       = PayPal::SDK::ButtonManager::VERSION
-  gem.authors       = ["siddick"]
-  gem.email         = ["mebramsha@paypal.com"]
+  gem.authors       = ["PayPal"]
+  gem.email         = ["DL-PP-Platform-Ruby-SDK@paypal.com"]
   gem.description   = %q{ButtonManager SDK}
   gem.summary       = %q{ButtonManager SDK}
   gem.homepage      = "https://www.x.com/"
