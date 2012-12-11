@@ -1,4 +1,4 @@
-# ButtonManager[ Work in progress !! ]
+# ButtonManager
 
 SDK for ButtonManager.
 
