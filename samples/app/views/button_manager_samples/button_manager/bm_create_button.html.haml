@@ -26,6 +26,9 @@
         %label.control-label{:for => "ButtonVar_return"} Return Url
         .controls= text_field_tag "ButtonVar[return]", @button_var["return"]
       .control-group
+        %label.control-label{:for => "ButtonVar_notify_url"} Notify Url
+        .controls= text_field_tag "ButtonVar[notify_url]", @button_var["notify_url"]
+      .control-group
         %label.control-label{:for => "ButtonVar_shopping_url"} Shipping Url
         .controls= text_field_tag "ButtonVar[shopping_url]", @button_var["shopping_url"]
       .control-group
@@ -40,3 +43,4 @@
 
 - if @bm_create_button_response
   = render 'api_response', :request => @bm_create_button, :response => @bm_create_button_response
+  = link_to "Email link", @bm_create_button_response.Email if @bm_create_button_response.Email

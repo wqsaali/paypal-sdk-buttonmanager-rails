@@ -9,7 +9,6 @@ en:
       ButtonVar:
         - "item_name=Testing"
         - "amount=5"
-        - "return=http//localhost:3000"
     bm_button_search:
       StartDate: 2012-12-03T08:39:40+00:00
     bm_manage_button_status:

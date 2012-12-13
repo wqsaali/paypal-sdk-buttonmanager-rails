@@ -8,6 +8,15 @@ module ButtonManagerSamples
       redirect_to :action => :bm_create_button
     end
 
+    def ipn_notify
+      if PayPal::SDK::Core::API::IPN.valid?(request.raw_post)
+        logger.info("IPN message: VERIFIED")
+        render :text => "VERIFIED"
+      else
+        logger.info("IPN message: INVALID")
+        render :text => "INVALID"
+      end
+    end
 
     def bm_create_button
       @bm_create_button = api.build_bm_create_button(params[:BMCreateButtonRequestType] || default_api_value)
@@ -20,6 +29,8 @@ module ButtonManagerSamples
           ary = str.split("=", 2)
           @button_var.merge! ary[0] => ary[1]
         end
+        @button_var["return"] ||= button_manager_url(:bm_create_button)
+        @button_var["notify_url"] ||= button_manager_url(:ipn_notify)
       end
       @bm_create_button_response = api.bm_create_button(@bm_create_button) if request.post?
     end
