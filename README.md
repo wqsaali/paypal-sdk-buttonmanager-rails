@@ -1,6 +1,6 @@
-# ButtonManager
+# Button Manager SDK
 
-SDK for ButtonManager.
+The PayPal Button Manager SDK provides Ruby APIs to create, and manage PayPal Payments Standard buttons programmatically.
 
 ## Installation
 

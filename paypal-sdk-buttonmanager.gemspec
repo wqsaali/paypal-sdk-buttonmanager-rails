@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = PayPal::SDK::ButtonManager::VERSION
   gem.authors       = ["PayPal"]
   gem.email         = ["DL-PP-Platform-Ruby-SDK@ebay.com"]
-  gem.description   = %q{ButtonManager SDK}
-  gem.summary       = %q{ButtonManager SDK}
+  gem.summary       = %q{PayPal Button Manager SDK}
+  gem.description   = %q{The PayPal Button Manager SDK provides Ruby APIs to create, and manage PayPal Payments Standard buttons programmatically.}
   gem.homepage      = "https://www.x.com/"
 
   gem.files         = Dir["{bin,spec,lib}/**/*"] + ["Rakefile", "README.md", "Gemfile"]
