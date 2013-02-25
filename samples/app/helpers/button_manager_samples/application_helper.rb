@@ -19,7 +19,7 @@ module ButtonManagerSamples
 
     def generate_code(api_request, api_response)
       request_hash= api_request.to_hash(:namespace => false, :attribute => false)
-      request_hash.delete(:Version)
+      request_hash.delete("Version")
       # request_hash  = get_dotted_hash(request_hash)
       response_hash = api_response.to_hash(:namespace => false, :attribute => false)
       ruby_code   = render("ruby_code.rb", :request_hash => request_hash, :response_hash => response_hash)
@@ -45,6 +45,28 @@ module ButtonManagerSamples
 
     def max_key_length(hash)
       hash.select{|k, v| !(v.is_a? Hash or ( v.is_a? Array and v[0].is_a? Hash )) }.map{|k,v| k.size}.max
+    end
+
+    def format_hash(hash)
+      entries = hash.map do |key, value|
+        "#{key.to_sym.inspect} => " +
+          if value.is_a? Hash and value.size > 0
+            format_hash(value)
+          elsif value.is_a? Array and value[0].is_a? Hash
+            "[" + value.map{|v| format_hash(v) }.join(",") + "]"
+          else
+            value.to_json
+          end
+      end
+      indent_hash_entries(entries)
+    end
+
+    def indent_hash_entries(entries)
+      if entries.size > 0
+        "{\n" + entries.join(",\n").gsub(/^/, "  ") + " }"
+      else
+        "{}"
+      end
     end
 
     def api_class_name(klass)

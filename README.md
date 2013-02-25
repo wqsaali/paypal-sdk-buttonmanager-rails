@@ -123,16 +123,21 @@ To get response status:
 
 ```ruby
 require 'paypal-sdk-buttonmanager'
-@api = PayPal::SDK::ButtonManager::API.new
+@api = PayPal::SDK::ButtonManager::API.new(
+  :mode      => "sandbox",  # Set "live" for production
+  :app_id    => "APP-80W284485P519543T",
+  :username  => "jb-us-seller_api1.paypal.com",
+  :password  => "WX4WTU3S8MY44S7F",
+  :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy" )
 
 # Build request object
-@bm_create_button_request = @api.build_bm_create_button()
-@bm_create_button_request.ButtonType = "BUYNOW"
-@bm_create_button_request.ButtonCode = "HOSTED"
-@bm_create_button_request.ButtonVar  = ["item_name=Item","amount=5","return=http//localhost:3000"]
+@bm_create_button = @api.build_bm_create_button({
+  :ButtonType => "BUYNOW",
+  :ButtonCode => "HOSTED",
+  :ButtonVar => ["item_name=Testing","amount=5","return=http://localhost:3000/samples/button_manager/bm_create_button","notify_url=http://localhost:3000/samples/button_manager/ipn_notify"] })
 
 # Make API call & get response
-@bm_create_button_response = @api.bm_create_button(@bm_create_button_request)
+@bm_create_button_response = @api.bm_create_button(@bm_create_button)
 
 # Access Response
 @bm_create_button_response.Timestamp
