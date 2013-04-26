@@ -1,3 +1,3 @@
 module ButtonManagerSamples
-  VERSION = "1.98.0"
+  VERSION = "1.98.2"
 end
