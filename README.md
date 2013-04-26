@@ -84,14 +84,13 @@ require 'paypal-sdk-buttonmanager'
 @bm_create_button_response = @api.bm_create_button(@bm_create_button)
 
 # Access Response
-@bm_create_button_response.Timestamp
-@bm_create_button_response.Ack
-@bm_create_button_response.CorrelationID
-@bm_create_button_response.Version
-@bm_create_button_response.Build
-@bm_create_button_response.Website
-@bm_create_button_response.Email
-@bm_create_button_response.HostedButtonID
+if @bm_create_button_response.success?
+  @bm_create_button_response.Website
+  @bm_create_button_response.Email
+  @bm_create_button_response.HostedButtonID
+else
+  @bm_create_button_response.Errors
+end
 ```
 
 For more samples [paypal-sdk-samples.herokuapp.com/button_manager/](https://paypal-sdk-samples.herokuapp.com/button_manager/)
