@@ -38,6 +38,17 @@
         %label.control-label{:for => "ButtonVar_subtotal"} Sub Total
         .controls= text_field_tag "ButtonVar[subtotal]", @button_var["subtotal"]
 
+      %legend For Subscribe
+      .control-group
+        %label.control-label{:for => "ButtonVar_t3"} Billing cycle units
+        .controls= select_tag "ButtonVar[t3]", options_for_select(["", "D", "W", "M", "Y"]), :value => @button_var["t3"]
+      .control-group
+        %label.control-label{:for => "ButtonVar_p3"} Billing cycle
+        .controls= text_field_tag "ButtonVar[p3]", @button_var["p3"], :placeholder => "Ex: 1"
+      .control-group
+        %label.control-label{:for => "ButtonVar_a3"} Price
+        .controls= text_field_tag "ButtonVar[a3]", @button_var["a3"], :placeholder => "Ex: 10.00"
+
   .form-actions
     = f.submit "Submit", :class => "btn btn-primary", :data => { :disable_with => "Processing.." }
 
