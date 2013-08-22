@@ -5,7 +5,7 @@ module PayPal::SDK
   module ButtonManager
 
 	  # Service Version
-	  SERVICE_VERSION = "98.0"
+	  SERVICE_VERSION = "106.0"
 	  # Service Name
 	  SERVICE_NAME = "PayPalAPIInterfaceService"
 
