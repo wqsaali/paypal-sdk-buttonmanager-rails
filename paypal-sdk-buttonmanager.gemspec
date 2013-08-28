@@ -12,6 +12,8 @@ Gem::Specification.new do |gem|
   gem.description   = %q{The PayPal Button Manager SDK provides Ruby APIs to create, and manage PayPal Payments Standard buttons programmatically.}
   gem.homepage      = "https://developer.paypal.com"
 
+  gem.license       = "PayPal SDK License"
+
   gem.files         = Dir["{bin,spec,lib}/**/*"] + ["Rakefile", "README.md", "Gemfile"]
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
