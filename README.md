@@ -93,8 +93,6 @@ else
 end
 ```
 
-For more samples [paypal-sdk-samples.herokuapp.com/button_manager/](https://paypal-sdk-samples.herokuapp.com/button_manager/)
-
 ## Samples App
 
 Add following line in rails `Gemfile`:
