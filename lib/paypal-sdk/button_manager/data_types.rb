@@ -3655,9 +3655,9 @@ module PayPal::SDK
       class BMButtonSearchRequestType < AbstractRequestType
         def self.load_members
           # The earliest transaction date at which to start the search. No wildcards are allowed. Required 
-          object_of :StartDate, DateTime, :namespace => :ns
+          object_of :StartDate, String, :namespace => :ns
           # The latest transaction date to be included in the search Optional 
-          object_of :EndDate, DateTime, :namespace => :ns
+          object_of :EndDate, String, :namespace => :ns
         end
       end
 

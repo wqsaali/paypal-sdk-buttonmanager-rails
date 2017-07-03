@@ -145,7 +145,6 @@ module PayPal::SDK
       def BMButtonSearch(options = {} , http_header = {})
         request_object  = BuildBMButtonSearch(options)
         request_hash    = request_object.to_hash
-        request_hash["ns:StartDate"] = request_hash["ns:StartDate"].utc.iso8601 # rails hot fix
         response_hash   = request("BMButtonSearch", request_hash, http_header)
         BMButtonSearchResponseType.new(response_hash)
       end
