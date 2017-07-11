@@ -7,7 +7,7 @@ The PayPal Button Manager SDK provides Ruby APIs to create, and manage PayPal Pa
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'paypal-sdk-buttonmanager'
+gem 'paypal-sdk-buttonmanager-rails'
 ```
 
 And then execute:
@@ -19,7 +19,7 @@ $ bundle
 Or install it yourself as:
 
 ```sh
-$ gem install paypal-sdk-buttonmanager
+$ gem install paypal-sdk-buttonmanager-rails
 ```
 
 ## Configuration
@@ -66,8 +66,8 @@ PayPal::SDK::Core::Config.load('config/paypal.yml',  ENV['RACK_ENV'] || 'develop
 ## Example
 
 ```ruby
-require 'paypal-sdk-buttonmanager'
-@api = PayPal::SDK::ButtonManager::API.new(
+require 'paypal-sdk-buttonmanager-rails'
+@api = PayPal::SDK::ButtonManagerRails::API.new(
   :mode      => "sandbox",  # Set "live" for production
   :app_id    => "APP-80W284485P519543T",
   :username  => "jb-us-seller_api1.paypal.com",
@@ -92,27 +92,4 @@ else
   @bm_create_button_response.Errors
 end
 ```
-
-## Samples App
-
-Add following line in rails `Gemfile`:
-
-```ruby
-gem 'paypal-sdk-buttonmanager'
-gem 'button_manager_samples', :git => "https://github.com/paypal/buttonmanager-sdk-ruby.git", :group => :development
-```
-
-Configure routes(`config/routes.rb`):
-
-```ruby
-mount ButtonManagerSamples::Engine => "/samples" if Rails.env.development?
-```
-
-To get default paypal configuration execute:
-
-```sh
-rails g paypal:sdk:install
-```
-
-Run `rails server` and check the samples.
 
